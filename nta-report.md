@@ -4,7 +4,7 @@ Họ tên: Ngô Trí Anh. Mã học viên: 2A202604053.
 
 Guideline: Road v1.0. Tên file bàn giao: nta.
 
-Bộ bàn giao **revision 2**, lập ngày 21/11/2026. Theo yêu cầu của học viên, dùng các ZIP import làm nguồn cuối và ghép core/extra thành hai ZIP front/fisheye. Nhãn giữ nguyên so với bộ import đã sửa. Học viên thông báo đã liên hệ coach và xử lý các ca tồn đọng. Chưa có phiếu Hoàng Mạnh Hùng kiểm nta trong đầu vào.
+Bộ bàn giao **revision 2**, lập ngày 21/11/2026. Theo yêu cầu của học viên, dùng các ZIP import làm nguồn cuối và ghép core/extra thành hai ZIP front/fisheye. Nhãn giữ nguyên so với bộ import đã sửa. Học viên thông báo đã liên hệ coach và xử lý các ca tồn đọng. Đã nhận phiếu Hoàng Mạnh Hùng kiểm nta revision 1; quyết định Rework. Phản hồi và đối chiếu bộ cuối ở mục 4.
 
 Phiên bản ứng dụng CVAT: chưa xác nhận từ Help → About; XML version=1.1 chỉ là phiên bản định dạng. `meta/task/updated` front là 2026-11-20 11:55:01 UTC, fisheye là 2026-11-21 01:18:29 UTC; đây không phải thời điểm export. Manifest gốc được tạo 21/11/2026 lúc 09:18:49 giờ Việt Nam. Số lần nộp lại thực tế: chưa xác nhận.
 
@@ -39,28 +39,41 @@ Số liệu theo bốn task nguồn; bản cuối ghép thành hai ZIP: front A0
 | A05 | lane | thiếu L1/R1 hay không có vạch thực | Không thêm vạch giả; học viên thông báo đã trao đổi coach và xử lý | Ảnh đường phố có xe đỗ hai bên, không thấy vạch sơn |
 | A06 | lane | biên làn hay vạch sang đường | Không thêm R1 giả; thuộc nhóm ca học viên đã thông báo trao đổi coach và xử lý | Phía phải có cột và lề; nhiều vạch ngang ở giao lộ |
 | A07 | lane | thiếu L1 hay biên trái là dải phân cách | Học viên thông báo đã trao đổi coach và xử lý | Không tự coi mép bê tông là vạch sơn |
-| A08 | lane | biên ngoài bên trái hay bên phải | Bản r2 sửa lane#3 từ L2 thành R2; ca thiếu L1 thuộc nhóm học viên đã thông báo xử lý với coach | Đường này nằm phía ngoài bên phải R1 trên ảnh |
+| A08 | lane | biên ngoài bên trái hay bên phải | Đã sửa vạch ngoài bên phải L2→R2; phiếu nhận được ghi có vạch trái nhưng bộ cuối chưa có L1, cần xử lý riêng | Đường này nằm phía ngoài bên phải R1 trên ảnh |
 | A09 | lane | vạch trái đôi và vạch phải đứt | Bản r2: lane#5 L1→R1; lane#6 L2→L1 | Đối chiếu ảnh: vạch đôi nằm trái làn xe, vạch đứt nằm phải |
 | B07/B08 | lane | L/R hay other | Bản r2 đổi 4 lane thành other | Camera hai bên theo guideline luôn dùng other; tính hợp lệ và hình học lane cần rà riêng |
 | B02 | traffic_light | edge_zone false/true | Bản r2 bật true cho 2 box | Tâm box nằm ngoài 80% bán kính theo checker |
 | B10 | camera | fisheye_right/fisheye_left | Bản r2 sửa fisheye_left | Hậu tố MVL trong tên ảnh |
 
-## 4. Phiếu QC 1 nhận được và sửa bài
+## 4. Phiếu QC 1 nhận được và phản hồi
 
-Bạn ghép cặp: Hoàng Mạnh Hùng. **Chưa có phiếu Hoàng Mạnh Hùng kiểm nta trong file đã cung cấp.** Không tự điền quyết định hoặc ý kiến của bạn ấy. Phiếu `nta-qc1-for-hoanghung.md` là chiều tôi kiểm bạn, không thay thế phiếu nhận được.
+Người kiểm: **Hoàng Mạnh Hùng**. Ngày: 21/11/2026. Phiếu gốc: `hoanghung-qc1-for-nta.md`, kiểm revision 1, được giữ nguyên. Quyết định nhận được: **Rework** vì 4 lỗi QC1-03 ở B07/B08; không diễn giải quyết định đó thành Release cho revision 2 khi chưa được kiểm lại.
 
-Các sửa dưới đây là tự kiểm có công cụ hỗ trợ, chưa phải phản hồi phiếu đã nhận:
+Phạm vi core: 20 ảnh, **237 nhãn = 157 shape + 80 tag**. Phiếu ghi 4 lỗi nặng chắc chắn, 6 trường hợp thiếu L1/R1 chờ xác nhận, 12 lỗi nhẹ theo shape và 0 lỗi chính đã xác nhận. Ảnh thêm được ghi riêng. Tỷ lệ 0/237 trong phiếu là của revision 1 và các lỗi đã xác nhận tại thời điểm kiểm, không phải điểm chất lượng hoặc kết luận cho bộ cuối.
 
-| Mã | Phát hiện | Đồng ý / bằng chứng | Đã sửa? |
+| Mã | Số lượng và nội dung phiếu | Phản hồi | Đối chiếu bộ cuối revision 2 |
 | --- | --- | --- | --- |
-| QC1-03 | 4 lane B07/B08 sai position | Camera hai bên | Có trong ZIP bàn giao |
-| QC1-03 | 3 lane A08/A09 sai position | Đối chiếu ảnh gốc | Có trong ZIP bàn giao |
-| QC1-01 | B10 sai camera | Tên file MVL | Có trong ZIP bàn giao fisheye |
-| QC1-11 | 2 đèn B02 thiếu edge_zone | Tâm box và ngưỡng 80% | Có trong ZIP bàn giao |
-| QC1-12 | 14 shape có đỉnh liên tiếp trùng | XML points trùng hoàn toàn | Đã xóa đỉnh trùng, giữ hình học |
-| QC1-02 | Core còn 5 cảnh báo: A05 hai bên, A06 R1, A07 L1, A08 L1 | Học viên thông báo đã liên hệ coach và xử lý | Giữ nguyên nhãn của bộ import được chọn làm final; giữ cảnh báo thô trong manifest |
+| QC1-03 | 4 lane B07 #2/#3/#4, B08 #0 sai position | Đồng ý | Đã kiểm XML: cả 4 lane đều other |
+| QC1-12 | 12 shape core có đỉnh trùng liên tiếp | Đồng ý | Đã xóa đỉnh trùng; kiểm không còn cặp điểm liên tiếp bằng nhau |
+| QC1-01 extra | B10 camera sai right/left | Đồng ý | Đã kiểm camera=fisheye_left |
+| QC1-12 extra | A14 crosswalk #6, A15 drivable #3 có đỉnh trùng | Đồng ý | Đã xóa đỉnh trùng, giữ hình học |
+| QC1-11 | B02 hai đèn #2/#3 có thể thiếu edge_zone | Đồng ý với sửa theo ngưỡng checker | Hai box đã bật true trong bộ cuối |
+| QC1-05 | B07 hai polyline R1 có thể là vạch đứt bị tách | Chưa đủ căn cứ kết luận là cùng vạch | Position đã thành other; không tự nối các shape chỉ vì từng trùng position |
+| QC1-02 | A05 không có vạch; A06 không thấy R1; A07 không thấy L1 theo cột lời đáp của phiếu | Giữ không vẽ thêm | Các cảnh báo thô vẫn còn; phiếu chưa ghi người/ngày xác nhận lời đáp |
+| QC1-02 | A09 có vạch phải theo phiếu | Đồng ý | Đã sửa position lane #5 thành R1, lane #6 thành L1; bộ cuối đủ L1/R1 |
+| QC1-02 | **A08 có vạch trái theo phiếu** | **Cần làm rõ, chưa thể ghi đã sửa** | Bộ cuối chỉ có R1/R2, chưa có L1. Việc đổi vạch ngoài bên phải từ L2→R2 không bổ sung vạch trái |
+| QC1-02 extra | A14 thiếu R1 chờ xác nhận | Chưa có lời đáp riêng trong phiếu | Cảnh báo còn trong manifest |
 
-Bản gốc revision 1 giữ tại review/r1 trong repo. Bộ nộp revision 2 gồm cả ảnh thêm. Không tự ghi quyết định của coach theo từng ảnh khi học viên mới thông báo chung đã liên hệ và xử lý; không tự biến cảnh báo lint thành 0. Phiếu tôi kiểm Hoàng Mạnh Hùng là chiều kiểm độc lập, không thay phiếu nhận được.
+Học viên trước đó thông báo đã liên hệ coach và xử lý. Tuy nhiên phiếu nhận được ghi A08 có vạch trái, còn bộ import được chọn làm final vẫn thiếu L1. Cần đối chiếu lại quyết định coach hoặc sửa vạch nhìn thấy và kiểm lại trước khi kết luận đóng lỗi này. Không thêm một polyline suy đoán để xóa cảnh báo, không tự ghi coach đã miễn A08.
+
+Các điểm nên nhờ người kiểm làm rõ trong phiếu gốc (không tự sửa thay):
+
+- Tổng 237 nhãn khớp core. Phiếu nói kiểm 4 ZIP nhưng manifest revision 1 chỉ chứa hash của 2 ZIP core; cần phân biệt phần xác minh hash core với 2 ZIP extra.
+- QC1-02 ghi 20 mục kiểm nhưng 6 sự kiện thiếu vạch: nên nói rõ kiểm theo ảnh hay vị trí trái/phải. A05 có 2 vị trí thiếu, nên số lời đáp/case không đồng nhất số lỗi.
+- 12 lỗi nhẹ core là số shape, trong khi danh sách lỗi nhóm nhiều shape vào một dòng; tổng theo shape hợp lý nhưng nên ghi rõ đơn vị. E3 ảnh thêm đang gộp tên ảnh/shape vào cột Ảnh, có thể tách 2 dòng để dễ tìm.
+- Các ô B07 và B02 chưa có lời đáp; cần cập nhật sau khi kiểm lại revision 2. Số “ca chờ lead: 7” cần cập nhật theo lời đáp hiện có, không suy ra từ số dòng cũ.
+
+Các sửa position A08/A09 ngoài phạm vi 4 lỗi QC1-03 nêu trong phiếu là kết quả tự kiểm trước đó. Bản gốc revision 1 vẫn giữ trong repo. Chưa nhận quyết định kiểm lại revision 2.
 
 ## 5. Kiểm file bàn giao
 
@@ -71,7 +84,7 @@ Bản gốc revision 1 giữ tại review/r1 trong repo. Bộ nộp revision 2 g
 
 Hai ZIP chỉ chứa annotations.xml, không kèm ảnh. Manifest mới ghi SHA256, số byte, đủ 28 ảnh và bốn tag/ảnh. Kiểm tra trước/sau ghép xác nhận tọa độ, thuộc tính, tag và thứ tự shape không thay đổi. XML được đóng gói cục bộ từ bộ import do học viên chọn, không mô tả là một lần export mới từ CVAT.
 
-Lint còn 6 cảnh báo QC1-02: A05 L1/R1, A06 R1, A07 L1, A08 L1, A14 R1; và 7 gợi ý box nhỏ dưới 8 px (không tự động là lỗi chấm). Không có cảnh báo chính từ lint. Các ca tồn đọng đã được học viên thông báo trao đổi coach và xử lý; chưa có nội dung xác nhận chi tiết để đính kèm. B11 là ảnh thêm chỉ có tag, không yêu cầu tính điểm thưởng cho ảnh này.
+Lint còn 6 cảnh báo QC1-02: A05 L1/R1, A06 R1, A07 L1, A08 L1, A14 R1; và 7 gợi ý box nhỏ dưới 8 px (không tự động là lỗi chấm). Không có cảnh báo chính từ lint. Đã có phiếu QC revision 1 để đối chiếu: A05/A06/A07 ghi không thấy vạch; A08 ghi có vạch trái nhưng bộ cuối chưa có L1, cần làm rõ như mục 4. B11 là ảnh thêm chỉ có tag, không yêu cầu tính điểm thưởng cho ảnh này.
 
 Ảnh project được cung cấp còn hiển thị task fisheye/fisheye-extra ở trạng thái annotating. Chưa có ảnh sau đó để xác nhận completed. Không suy ra phiên bản ứng dụng CVAT hay thời điểm export cuối từ các ảnh hiện có.
 

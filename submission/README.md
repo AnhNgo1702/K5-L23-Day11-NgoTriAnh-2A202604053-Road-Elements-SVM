@@ -14,9 +14,11 @@ Nguồn cuối do học viên chọn: review/import-cvat, đã ghép thành hai 
 
 Các phần chưa có bằng chứng để tự hoàn tất:
 
-- Phiếu Hoàng Mạnh Hùng kiểm nta và phản hồi tương ứng ở mục 4 báo cáo.
+- Đã nhận phiếu Hoàng Mạnh Hùng kiểm nta, kèm bản gốc làm tài liệu đối chiếu; mục 4 báo cáo đã cập nhật. Cần làm rõ A08: phiếu ghi có vạch trái nhưng bộ cuối chưa có L1, chưa có quyết định kiểm lại revision 2.
 - Xác nhận jobs completed: ảnh project hiện có còn hiển thị annotating. Trên CVAT cần Save và Finish the job nếu chưa hoàn tất.
 - Ảnh fisheye phóng to lane cong: ảnh hiện tại là crosswalk B01.
 - Phiếu QC cho Hoàng Mạnh Hùng còn ghi rõ một số tiêu chí chưa kết luận và chưa có ảnh được xác nhận toàn diện không lỗi.
 
 Các phần này không được điền giả. Bản gốc và snapshot revision 1 vẫn giữ trong repo; không cần nộp các script hoặc thư mục review.
+
+Phiếu hoanghung-qc1-for-nta.md là tài liệu nhận được kèm theo, không thay phiếu nta-qc1-for-hoanghung.md trong 5 file chính. Hai ZIP và manifest không thay đổi khi bổ sung phản hồi QC.
